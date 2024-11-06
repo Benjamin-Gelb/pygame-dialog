@@ -201,6 +201,22 @@ class Dialog(Renderable):
             yield self.event_queue.pop()
 
 
+class FancyDialog(Dialog):
+    def __init__(self, config: DialogConfig, framerate:int, writer: DialogWriter = DefaultWriter()) -> None:
+        self.framerate = framerate
+        self.open_frames = 0
+        super().__init__(config, writer)
+    
+    def render(self, screen: pygame.Surface):
+        if self.state.open and self.open_frames == 0:
+            self.open_frames = 1
+            self.config.width = 0
+        if self.open_frames > 0:
+            pass
+
+        return super().render(screen)
+
+
 # class Dialog:
 #     surface: pygame.Surface
 #     width: int

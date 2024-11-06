@@ -16,7 +16,8 @@ Basic Example -> Opening and closing a dialog box when 'h' is pressed:
 
 ```python
 # init pygame
-screen = 
+screen = pygame.display.set_mode((800, 600)) # Set screen
+# ...
 dialog_config = SnapToBottom(screen=screen, height=40, padding_y=10, padding_x=10)
 dialog = Dialog(dialog_config)
 
